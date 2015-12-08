@@ -1,0 +1,41 @@
+group 'com.mtrojahn'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:1.3.0.RELEASE"
+    }
+}
+
+apply plugin: 'groovy'
+apply plugin: 'spring-boot'
+
+repositories {
+    mavenCentral()
+    maven {
+        url "http://mavensync.zkoss.org/maven2"
+    }
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+configurations {
+    all*.exclude group: 'org.slf4j', module: 'slf4j-jdk14'
+}
+
+dependencies {
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.zkoss.zk:zkplus:8.0.0"
+    compile "org.zkoss.zk:zkbind:8.0.0"
+    compile "org.zkoss.zk:zkspring-core:3.0"
+    compile 'org.codehaus.groovy:groovy-all'
+    testCompile "junit:junit"
+}
+
+bootRun {
+    addResources = true
+}

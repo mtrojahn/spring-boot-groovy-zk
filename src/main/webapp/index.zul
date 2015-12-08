@@ -1,0 +1,10 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<window border="normal" title="Sample Window" vflex="1"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.zkoss.org/2005/zul"
+        xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd"
+        viewModel="@id('vm') @init('com.mtrojahn.zk.controllers.IndexController')">
+
+    <label value="@load(vm.message)" />
+
+</window>
